@@ -1,0 +1,59 @@
+{
+  "weights": {
+    "income": -0.505841,
+    "expenses": 0.700529,
+    "disposable_income": -1.59366,
+    "total_savings": -2.542313,
+    "loan_amount": 2.3756,
+    "duration": -1.42406,
+    "monthly_payment": 2.42066,
+    "guarantor_salary": -0.690486,
+    "collateral_value": -0.06532,
+    "expected_return": 0.758716,
+    "debt_to_income": 3.895814,
+    "savings_to_loan_ratio": -2.391786,
+    "loan_to_value": 0.356758,
+    "repayment_capacity": -1.265007
+  },
+  "bias": 1.077651,
+  "normalization": {
+    "income": 69937.0,
+    "expenses": 42217.0,
+    "disposable_income": 40756.0,
+    "total_savings": 249896.0,
+    "loan_amount": 499734.0,
+    "duration": 47.0,
+    "monthly_payment": 40567.83,
+    "guarantor_salary": 103346.0,
+    "collateral_value": 924095.0,
+    "expected_return": 1389116.0,
+    "debt_to_income": 2.86,
+    "savings_to_loan_ratio": 3.27,
+    "loan_to_value": 572.99,
+    "repayment_capacity": 16.33
+  },
+  "feature_columns": [
+    "income",
+    "expenses",
+    "disposable_income",
+    "total_savings",
+    "loan_amount",
+    "duration",
+    "monthly_payment",
+    "guarantor_salary",
+    "collateral_value",
+    "expected_return",
+    "debt_to_income",
+    "savings_to_loan_ratio",
+    "loan_to_value",
+    "repayment_capacity"
+  ],
+  "accuracy": 0.7867,
+  "roc_auc": 0.8541,
+  "f1_score": 0.8384,
+  "model_version": "4.0",
+  "risk_thresholds": {
+    "low_max": 30,
+    "medium_max": 50
+  }
+}
