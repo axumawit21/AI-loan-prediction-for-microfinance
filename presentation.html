@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>SACCO AI Loan Risk - Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a0a1a;color:#e2e8f0;overflow:hidden;height:100vh}
+.slide{display:none;flex-direction:column;justify-content:center;align-items:center;height:100vh;padding:50px 70px;animation:fadeIn .4s}
+.slide.active{display:flex}
+@keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.sn{position:absolute;bottom:25px;right:35px;font-size:13px;color:#475569}
+h1{font-size:48px;font-weight:800;background:linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;margin-bottom:14px;line-height:1.2}
+h2{font-size:36px;font-weight:700;color:#f1f5f9;margin-bottom:24px;text-align:center}
+h3{font-size:20px;font-weight:600;color:#93c5fd;margin-bottom:14px}
+p{font-size:18px;color:#94a3b8;text-align:center;max-width:900px;line-height:1.7}
+.tag{display:inline-block;background:linear-gradient(135deg,#3b82f6,#8b5cf6);padding:7px 22px;border-radius:50px;font-size:13px;font-weight:600;color:#fff;margin-bottom:18px;letter-spacing:1px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;max-width:1100px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;width:100%;max-width:1100px}
+.c{background:rgba(30,41,59,.7);border:1px solid rgba(99,102,241,.2);border-radius:14px;padding:24px;backdrop-filter:blur(10px)}
+.c p,.c li{font-size:15px;color:#94a3b8;line-height:1.8;text-align:left}
+.c ul{list-style:none;padding:0}.c li::before{content:"→ ";color:#60a5fa;font-weight:700}
+.hl{color:#60a5fa;font-weight:600}.w{color:#fbbf24}.d{color:#f87171}.s{color:#34d399}
+table{width:100%;max-width:1100px;border-collapse:collapse;font-size:14px}
+th{background:rgba(99,102,241,.2);color:#a5b4fc;padding:12px 16px;text-align:left;font-weight:600}
+td{padding:10px 16px;border-bottom:1px solid rgba(100,116,139,.15);color:#cbd5e1}
+.mr{display:flex;gap:20px;justify-content:center;margin-top:20px}
+.m{text-align:center;background:rgba(30,41,59,.7);border:1px solid rgba(99,102,241,.2);border-radius:14px;padding:20px 32px}
+.m .v{font-size:38px;font-weight:800;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.m .l{font-size:13px;color:#64748b;margin-top:4px}
+.fl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;margin:20px 0}
+.fs{background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);border-radius:10px;padding:12px 20px;font-size:14px;font-weight:500;color:#c7d2fe}
+.fa{color:#6366f1;font-size:22px;font-weight:700}
+.ctrl{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:99}
+.ctrl button{background:rgba(99,102,241,.2);border:1px solid rgba(99,102,241,.3);color:#c7d2fe;padding:8px 18px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:13px}
+.ctrl button:hover{background:rgba(99,102,241,.4)}
+.em{font-size:44px;margin-bottom:14px}
+</style></head><body>
+
+<!-- 1. INTRODUCTION -->
+<div class="slide active">
+<div class="tag">THESIS PRESENTATION</div>
+<h1>AI-Powered Loan Default<br>Prediction System</h1>
+<p>For Ethiopian SACCO Microfinance Institutions</p>
+<p style="margin-top:24px;font-size:15px;color:#64748b">Hybrid Machine Learning + Expert Rules · Logistic Regression · Real-time Risk Scoring</p>
+<div class="mr" style="margin-top:30px">
+<div class="m"><div class="v">14</div><div class="l">ML Features</div></div>
+<div class="m"><div class="v">85.4%</div><div class="l">ROC-AUC</div></div>
+<div class="m"><div class="v">1,500</div><div class="l">Training Records</div></div>
+<div class="m"><div class="v">3</div><div class="l">User Roles</div></div>
+</div>
+<div class="sn">1 / 13</div></div>
+
+<!-- 2. PROBLEM STATEMENT -->
+<div class="slide"><div class="em">⚠️</div><h2>Problem Statement</h2>
+<div class="g2">
+<div class="c"><h3>Current Challenges</h3><ul>
+<li>Ethiopian SACCOs face <span class="d">high loan default rates</span></li>
+<li>Credit assessment is manual, slow & subjective</li>
+<li>No standardized risk evaluation framework exists</li>
+<li>Limited access to credit bureau data in Ethiopia</li>
+<li>Inconsistent decisions across different officers</li></ul></div>
+<div class="c"><h3>Impact</h3><ul>
+<li>Financial losses threaten SACCO sustainability</li>
+<li>Members' savings are put at risk</li>
+<li>Loan processing delays frustrate borrowers</li>
+<li>Human bias leads to unfair lending decisions</li>
+<li>No data-driven insights for management</li></ul></div>
+</div><div class="sn">2 / 13</div></div>
+
+<!-- 3. OBJECTIVES -->
+<div class="slide"><div class="em">🎯</div><h2>Objectives</h2>
+<div class="g2">
+<div class="c"><h3>General Objective</h3>
+<p>To design and develop an AI-powered loan default prediction system that assists Ethiopian SACCO microfinance institutions in making accurate, data-driven lending decisions.</p></div>
+<div class="c"><h3>Specific Objectives</h3><ul>
+<li>Build a hybrid ML + expert-rules risk scoring engine</li>
+<li>Engineer financial ratio features for accurate prediction</li>
+<li>Implement critical fail safety rules for high-risk detection</li>
+<li>Create an explainable AI system (not a black box)</li>
+<li>Develop role-based dashboard (Officer, Committee, Admin)</li>
+<li>Deploy lightweight model without Python runtime dependency</li></ul></div>
+</div><div class="sn">3 / 13</div></div>
+
+<!-- 4. PROPOSED SOLUTION -->
+<div class="slide"><div class="em">💡</div><h2>Proposed Solution</h2>
+<div class="g3">
+<div class="c"><h3>🤖 ML Engine</h3><ul>
+<li>Logistic Regression classifier</li>
+<li>14 features (10 raw + 4 engineered ratios)</li>
+<li>Trained on 1,500 synthetic borrower profiles</li>
+<li>Exported as JSON — runs in JavaScript</li></ul></div>
+<div class="c"><h3>🛡️ Expert Rules</h3><ul>
+<li>6 weighted risk factors (domain expert logic)</li>
+<li>4 critical fail hard-override conditions</li>
+<li>Enforced both in training and at runtime</li>
+<li>Safety net against ML misclassification</li></ul></div>
+<div class="c"><h3>📊 Explainable Output</h3><ul>
+<li>Risk score 0–100% with color coding</li>
+<li>Human-readable ✅⚠️❌ explanations</li>
+<li>Feature breakdown for each prediction</li>
+<li>Recommendation: Approve / Modify / Reject</li></ul></div>
+</div><div class="sn">4 / 13</div></div>
+
+<!-- 5. SYSTEM ARCHITECTURE & UNIQUE FEATURES -->
+<div class="slide"><h2>System Architecture</h2>
+<div class="fl">
+<div class="fs">🐍 Python (Offline)<br><small>Train Model</small></div><div class="fa">→</div>
+<div class="fs">📄 JSON Weights<br><small>Export</small></div><div class="fa">→</div>
+<div class="fs">⚙️ NestJS API<br><small>Sigmoid Inference</small></div><div class="fa">→</div>
+<div class="fs">💾 MongoDB<br><small>Store Results</small></div><div class="fa">→</div>
+<div class="fs">🖥️ Vue.js<br><small>Dashboard</small></div>
+</div>
+<div class="g2" style="margin-top:24px">
+<div class="c"><h3>Tech Stack</h3><ul>
+<li><span class="hl">ML:</span> Python, scikit-learn, pandas, numpy</li>
+<li><span class="hl">Backend:</span> NestJS (TypeScript), MongoDB, JWT</li>
+<li><span class="hl">Frontend:</span> Vue.js 3, Tailwind CSS, Vite</li>
+<li><span class="hl">Model Format:</span> JSON (weights + bias)</li></ul></div>
+<div class="c"><h3>Unique Features</h3><ul>
+<li><span class="hl">No Python at runtime</span> — pure math in JS</li>
+<li><span class="hl">Hybrid approach</span> — ML + hard rules together</li>
+<li><span class="hl">Explainable AI</span> — not a black box</li>
+<li><span class="hl">Class imbalance handled</span> via balanced weights</li></ul></div>
+</div><div class="sn">5 / 13</div></div>
+
+<!-- 6. ML PIPELINE DETAIL -->
+<div class="slide"><h2>ML Pipeline Details</h2>
+<div class="g2">
+<div class="c"><h3>Data Generation (5 Archetypes)</h3>
+<table><tr><th>Type</th><th>Income</th><th>Default%</th></tr>
+<tr><td>Civil Servant</td><td>20K–50K</td><td class="s">5%</td></tr>
+<tr><td>Small Trader</td><td>15K–40K</td><td class="w">15%</td></tr>
+<tr><td>Farmer</td><td>8K–25K</td><td class="w">20%</td></tr>
+<tr><td>Micro Entrepreneur</td><td>25K–70K</td><td class="w">10%</td></tr>
+<tr><td>Daily Laborer</td><td>5K–12K</td><td class="d">35%</td></tr></table></div>
+<div class="c"><h3>Key Engineered Features</h3><ul>
+<li><span class="hl">debt_to_income</span> = payment ÷ income</li>
+<li><span class="hl">savings_to_loan_ratio</span> = savings ÷ loan</li>
+<li><span class="hl">loan_to_value</span> = loan ÷ collateral</li>
+<li><span class="hl">repayment_capacity</span> = disposable ÷ payment</li></ul>
+<h3 style="margin-top:16px">Expert Weights</h3><ul>
+<li>Repayment Capacity: <span class="hl">40%</span></li>
+<li>Income / Savings / Collateral: <span class="hl">15% each</span></li>
+<li>Guarantor: <span class="hl">10%</span> · Membership: <span class="hl">5%</span></li></ul></div>
+</div><div class="sn">6 / 13</div></div>
+
+<!-- 7. CRITICAL FAIL CONDITIONS -->
+<div class="slide"><div class="em">🚨</div><h2>Critical Fail Conditions</h2>
+<p style="margin-bottom:24px">Hard rules that <span class="d">override ML score to 95% risk</span></p>
+<div class="g2">
+<div class="c" style="border-color:rgba(248,113,113,.3)"><h3 style="color:#f87171">Rule 1: Payment > Income</h3>
+<p>Monthly payment exceeds disposable income — borrower literally cannot pay</p></div>
+<div class="c" style="border-color:rgba(248,113,113,.3)"><h3 style="color:#f87171">Rule 2: DTI > 50%</h3>
+<p>Debt-to-income ratio exceeds international banking threshold</p></div>
+<div class="c" style="border-color:rgba(248,113,113,.3)"><h3 style="color:#f87171">Rule 3: Loan > 3× Savings</h3>
+<p>Loan amount exceeds 3 times total savings — extreme overextension</p></div>
+<div class="c" style="border-color:rgba(248,113,113,.3)"><h3 style="color:#f87171">Rule 4: No Collateral</h3>
+<p>Collateral value is zero — no recovery option for the SACCO</p></div>
+</div><div class="sn">7 / 13</div></div>
+
+<!-- 8. MODEL RESULTS -->
+<div class="slide"><h2>Model Performance & Results</h2>
+<div class="mr">
+<div class="m"><div class="v">78.7%</div><div class="l">Accuracy</div></div>
+<div class="m"><div class="v">85.4%</div><div class="l">ROC-AUC</div></div>
+<div class="m"><div class="v">83.8%</div><div class="l">F1-Score</div></div>
+</div>
+<div class="g2" style="margin-top:24px">
+<div class="c"><h3 class="s">Risk Decreasers (Negative Weight) ✅</h3><ul>
+<li>total_savings: <strong>−2.54</strong></li>
+<li>savings_to_loan_ratio: <strong>−2.39</strong></li>
+<li>disposable_income: <strong>−1.59</strong></li>
+<li>repayment_capacity: <strong>−1.27</strong></li>
+<li>guarantor_salary: <strong>−0.69</strong></li></ul></div>
+<div class="c"><h3 class="d">Risk Increasers (Positive Weight) ❌</h3><ul>
+<li>debt_to_income: <strong>+3.90</strong> (strongest)</li>
+<li>monthly_payment: <strong>+2.42</strong></li>
+<li>loan_amount: <strong>+2.38</strong></li>
+<li>expenses: <strong>+0.70</strong></li>
+<li>loan_to_value: <strong>+0.36</strong></li></ul></div>
+</div><div class="sn">8 / 13</div></div>
+
+<!-- 9. WORKFLOW -->
+<div class="slide"><h2>Loan Decision Workflow</h2>
+<div class="fl">
+<div class="fs" style="background:rgba(99,102,241,.25)">📝 Loan Created<br><small>pending</small></div><div class="fa">→</div>
+<div class="fs" style="background:rgba(59,130,246,.25)">🤖 AI Analysis<br><small>officer_review</small></div><div class="fa">→</div>
+<div class="fs" style="background:rgba(168,85,247,.25)">👨‍💼 Officer Review<br><small>approve/forward</small></div><div class="fa">→</div>
+<div class="fs" style="background:rgba(236,72,153,.25)">🏛️ Committee<br><small>final decision</small></div>
+</div>
+<div class="g3" style="margin-top:30px">
+<div class="c"><h3>👤 Loan Officer</h3><ul>
+<li>Registers clients</li><li>Creates loan applications</li>
+<li>Runs AI risk analysis</li><li>Reviews & forwards to committee</li></ul></div>
+<div class="c"><h3>🏛️ Committee</h3><ul>
+<li>Reviews AI prediction + officer notes</li><li>Makes final approve/reject decision</li>
+<li>Can request loan modifications</li><li>Multi-member review process</li></ul></div>
+<div class="c"><h3>🔧 Admin</h3><ul>
+<li>Manages users & SACCOs</li><li>Views system-wide analytics</li>
+<li>Monitors risk distribution</li><li>Generates reports</li></ul></div>
+</div><div class="sn">9 / 13</div></div>
+
+<!-- 10. EXPLAINABILITY -->
+<div class="slide"><h2>Explainable AI Output</h2>
+<p style="margin-bottom:24px">Every prediction is transparent — officers see <span class="hl">why</span> the AI scored it</p>
+<div class="c" style="max-width:800px;width:100%">
+<h3>Sample Prediction</h3>
+<p style="font-size:16px;line-height:2.2">
+<span class="s">✅ Good: Excellent repayment capacity (3.5× monthly payment)</span><br>
+<span class="s">✅ Good: Healthy debt-to-income ratio (22%)</span><br>
+<span class="w">⚠️ Warning: Moderate savings coverage (65%)</span><br>
+<span class="d">❌ Risk: Weak collateral coverage (LTV 72%)</span><br><br>
+<strong>Score:</strong> <span class="w">42/100</span> · <strong>Level:</strong> <span class="w">Medium</span> · <strong>Action:</strong> <span class="w">Modify Terms</span>
+</p></div>
+<div class="sn">10 / 13</div></div>
+
+<!-- 11. CHALLENGES -->
+<div class="slide"><div class="em">🧗</div><h2>Challenges Faced</h2>
+<div class="g2">
+<div class="c"><h3>Technical Challenges</h3><ul>
+<li>No real SACCO loan dataset available — solved with <span class="hl">synthetic data generation</span></li>
+<li>Class imbalance in training data — solved with <span class="hl">balanced class weights</span></li>
+<li>Model gave incorrect low-risk to high-risk applicants — solved with <span class="hl">critical fail rules</span></li>
+<li>Feature correlations were misaligned — solved with <span class="hl">expert-weighted scoring</span></li></ul></div>
+<div class="c"><h3>Design Challenges</h3><ul>
+<li>Making AI predictions explainable to non-technical users</li>
+<li>Ensuring model runs without Python server at runtime</li>
+<li>Balancing ML flexibility with rigid financial rules</li>
+<li>Designing role-based access for different decision levels</li></ul></div>
+</div><div class="sn">11 / 13</div></div>
+
+<!-- 12. CONCLUSION & FUTURE WORK -->
+<div class="slide"><h2>Conclusion & Future Work</h2>
+<div class="g2">
+<div class="c"><h3>✅ What We Achieved</h3><ul>
+<li>Built a working hybrid ML + expert-rules risk engine</li>
+<li>Achieved <span class="hl">85.4% ROC-AUC</span> with explainable outputs</li>
+<li>Lightweight deployment — model is just a JSON file</li>
+<li>Complete role-based workflow (Officer → Committee → Admin)</li>
+<li>Critical fail safety net prevents dangerous approvals</li></ul></div>
+<div class="c"><h3>🔮 Future Work</h3><ul>
+<li>Train on <span class="hl">real SACCO data</span> when available</li>
+<li>Upgrade to ensemble models (Random Forest, XGBoost)</li>
+<li>Add mobile app for field officers</li>
+<li>Integrate with Ethiopian credit bureau APIs</li>
+<li>Add loan repayment tracking & re-scoring</li>
+<li>Implement continuous model retraining pipeline</li></ul></div>
+</div><div class="sn">12 / 13</div></div>
+
+<!-- 13. THANK YOU -->
+<div class="slide">
+<div class="em">🎓</div>
+<h1>Thank You!</h1>
+<p style="margin-top:16px;font-size:20px">AI-Powered Loan Default Prediction System for Ethiopian SACCOs</p>
+<p style="margin-top:8px;font-size:15px;color:#64748b">Questions & Discussion</p>
+<div class="mr" style="margin-top:36px">
+<div class="m"><div class="v" style="font-size:26px">Hybrid</div><div class="l">ML + Expert Rules</div></div>
+<div class="m"><div class="v" style="font-size:26px">85.4%</div><div class="l">ROC-AUC</div></div>
+<div class="m"><div class="v" style="font-size:26px">Explainable</div><div class="l">Not a Black Box</div></div>
+<div class="m"><div class="v" style="font-size:26px">Real-time</div><div class="l">Risk Scoring</div></div>
+</div>
+<div class="sn">13 / 13</div></div>
+
+<div class="ctrl">
+<button onclick="prev()">◀ Prev</button>
+<button onclick="next()">Next ▶</button>
+<button onclick="document.documentElement.requestFullscreen()">⛶ Fullscreen</button>
+</div>
+<script>
+let c=0;const sl=document.querySelectorAll('.slide');
+function sh(n){sl.forEach(s=>s.classList.remove('active'));c=Math.max(0,Math.min(n,sl.length-1));sl[c].classList.add('active')}
+function next(){sh(c+1)}function prev(){sh(c-1)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')next();if(e.key==='ArrowLeft')prev();if(e.key==='f')document.documentElement.requestFullscreen()});
+</script>
+</body></html>

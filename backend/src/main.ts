@@ -5,14 +5,17 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Enable CORS for frontend (allow all localhost during development)
+  // Enable CORS for frontend
   app.enableCors({
     origin: (origin, callback) => {
-      if (!origin || origin.startsWith('http://localhost')) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
+      // Allow requests with no origin (mobile apps, Postman, etc.)
+      if (!origin) return callback(null, true);
+      // Allow localhost (dev) and Vercel deployments
+      const allowed =
+        origin.startsWith('http://localhost') ||
+        origin.endsWith('.vercel.app') ||
+        origin === process.env.FRONTEND_URL;
+      callback(null, allowed);
     },
     credentials: true,
   });
