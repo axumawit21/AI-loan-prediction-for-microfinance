@@ -2,7 +2,9 @@
 // API Service — Real Backend Integration
 // ═══════════════════════════════════════════
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+let BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+if (BASE_URL.endsWith('/')) BASE_URL = BASE_URL.slice(0, -1)
+if (!BASE_URL.endsWith('/api')) BASE_URL += '/api'
 
 // ── HTTP Helper ─────────────────────────────
 function getToken() {
